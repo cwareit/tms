@@ -35,7 +35,7 @@
                             <td>{{ $teacher->level }}</td>
                             <td>{{ $teacher->class }}</td>
                             <td>
-                            <img src="{{ asset('storage/' . $teacher->photo)}}" alt="छैन" height="50">
+                            <img src="{{ asset('images/teachers/' . $teacher->photo)}}" alt="छैन" height="50">
                                
                             </td>
                             <td class="d-print-none">

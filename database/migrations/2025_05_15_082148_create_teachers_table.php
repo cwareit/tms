@@ -41,7 +41,6 @@ return new class extends Migration
             $table->string('photo')->nullable();
             $table->timestamps();
             $table->softDeletes();
-            $table->string('fy');
         });
     }
 

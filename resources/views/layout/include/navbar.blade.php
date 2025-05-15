@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark d-print-none">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <img src="{{ asset('storage/image/emblem.png') }}" alt="Logo" style="height: 40px;">
+     <img src="{{ asset('images/emblem.png') }}" alt="Logo" style="height: 40px;">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>

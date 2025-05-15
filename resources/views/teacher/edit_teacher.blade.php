@@ -310,9 +310,9 @@
                     <div class="mb-3">
                         <label for="photo" class="form-label">फोटो</label>
 
-                        @if($teacher->photo !== 'image/no_photo.png')
+                        @if($teacher->photo !== 'no_photo.png')
                         <div class="mt-2">
-                            <img src="{{ asset('storage/'.$teacher->photo) }}" alt="Current Photo" width="100" class="img-thumbnail">
+                            <img src="{{ asset('images/teachers/'.$teacher->photo) }}" alt="Current Photo" width="100" class="img-thumbnail">
                             <a onclick = "return confirm('के तपाईँ साच्चै यो तश्वीर डिलिट गर्न चाहनुहुन्छ?')" class="btn btn-danger btn-sm ms-3" href="{{route('delete_photo', ['id' => $teacher->id])}}"> डिलिट गर्नुहोस</a>
                         </div>
 

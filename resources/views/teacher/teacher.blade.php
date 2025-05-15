@@ -39,11 +39,10 @@
   <div class="d-flex align-items-center bg-light p-3 border rounded mb-2">
     <!-- Teacher Photo -->
     <div class="flex-shrink-0">
-      <img src="{{ asset('storage/' . $teacher->photo) }}" 
+      <img src="{{ asset('images/teachers/' . $teacher->photo) }}" 
            alt="Teacher Photo" 
            class="img-thumbnail me-3" 
-           style="width: 80px; height: 80px; object-fit: cover;"
-           onerror="this.src='{{ asset('images/default-teacher.png') }}'">
+           style="width: 80px; height: 80px; object-fit: cover;">
     </div>
     
     <!-- Teacher Info -->

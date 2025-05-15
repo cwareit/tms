@@ -66,11 +66,15 @@ class TeacherController extends Controller
         $new_teacher->email = $request->email;
         $new_teacher->created_by = auth()->user()->name;
 
-        if ($request->hasFile('photo')) {
-            $path = $request->file('photo')->store('teacher/photo', 'public');
-            $new_teacher->photo = $path;
+         if ($request->hasFile('photo')) {
+            $image = $request->file('photo');
+            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images/teachers'), $imageName);
+           
+     
+            $new_teacher->photo = $imageName;
         } else {
-            $new_teacher->photo = 'image/no_photo.png';
+            $new_teacher->photo = 'no_photo.png';
         }
 
         $school = User::find($school_id);
@@ -172,8 +176,12 @@ class TeacherController extends Controller
         $teacher->email = $request->email;
 
         if ($request->hasFile('photo')) {
-            $path = $request->file('photo')->store('teacher/photo', 'public');
-            $teacher->photo = $path;
+            $image = $request->file('photo');
+            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images/teachers'), $imageName);
+           
+     
+            $teacher->photo = $imageName;
         }
 
         $teacher->update();
@@ -191,10 +199,11 @@ class TeacherController extends Controller
     public function delete_photo($id)
     {
         $teacher = Teacher::find($id);
-        if (\Storage::disk('public')->exists($teacher->photo) && $teacher->photo !== 'image/no_photo.png') {
-            \Storage::disk('public')->delete($teacher->photo);
+        $photoPath = public_path('images/teachers/' . $teacher->photo);
+        if (file_exists($photoPath) && $teacher->photo !== 'no_photo.png') {
+            unlink($photoPath);
         }
-        $teacher->photo = 'image/no_photo.png';
+        $teacher->photo = 'no_photo.png';
         $teacher->update();
 
         $activity = new Activity();

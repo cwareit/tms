@@ -126,7 +126,11 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}.</td>
                                         <td>{{ $teacher->user?->name ?? 'N/A' }}</td>
-                                        <td><a href="{{route('teacher', ['id' => $teacher->id])}}" class="">{{ $teacher->name }}</a></td>
+                                        @if(auth()->user()->type === 'office')
+                                            <td><a href="{{ route('teacher', ['id' => $teacher->id]) }}" class="">{{ $teacher->name }}</a></td>
+                                        @else
+                                            <td>{{ $teacher->name }}</td>
+                                        @endif
                                         <td>{{ $teacher->type }}</td>
                                         <td>{{ $teacher->level }}</td>
                                         <td>{{ $teacher->class }}</td>
