@@ -40,9 +40,7 @@
     
 
     </div>
-    <footer class="mt-2 py-2 bg-warning text-center text-white d-print-none">
-            &copy; {{ date('Y') }} Your Company. All rights reserved.
-        </footer>
+@include('layout.include.footer')
 
 </body>
 <!-- this should go after your </body> -->
